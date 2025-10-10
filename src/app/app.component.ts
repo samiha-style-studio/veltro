@@ -11,7 +11,7 @@ import { TranslateService } from '@ngx-translate/core';
     styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'stock-flow';
+  title = 'veltro';
   constructor(
     public authService: AuthService,
     private _translate: TranslateService
