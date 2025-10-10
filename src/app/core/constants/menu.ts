@@ -101,12 +101,12 @@ export class Menu {
         {
           icon: 'assets/icons/purchase.svg',
           label: 'Quick Sale',
-          route: '/sales/quick-sale',
+          route: '/manager/sales/quick-sale',
         },
         {
           icon: 'assets/icons/invoice.svg',
           label: 'Invoice',
-          route: '/manager/inventory/invoice',
+          route: '/manager/sales/invoice',
         },
         // {
         //   icon: 'assets/icons/dashboard.svg',
@@ -116,7 +116,7 @@ export class Menu {
         {
           icon: 'assets/icons/product-return.svg',
           label: 'Product Return',
-          route: '/manager/inventory/product-return',
+          route: '/manager/sales/product-return',
         },
       ],
     },

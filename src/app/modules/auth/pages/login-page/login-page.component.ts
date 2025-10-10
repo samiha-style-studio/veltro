@@ -24,7 +24,6 @@ import { NzNotificationService } from 'ng-zorro-antd/notification';
     NgZorroCustomModule,
     ReactiveFormsModule,
     AngularSvgIconModule,
-    RouterLink,
   ],
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss'],

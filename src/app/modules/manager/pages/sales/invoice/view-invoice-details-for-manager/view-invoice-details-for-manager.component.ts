@@ -1,6 +1,5 @@
 import { Component, DestroyRef, Input, OnInit } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
-import { ViewInvoiceComponent } from '@app/modules/sales/components/invoice/view-invoice/view-invoice.component';
 import { LoaderComponent } from '@app/shared/components/loader/loader.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { APIEndpoint } from '@app/core/constants/api-endpoint';
@@ -10,6 +9,7 @@ import { finalize } from 'rxjs';
 import { NgZorroCustomModule } from '@app/shared/ng-zorro-custom.module';
 import { TranslateModule } from '@ngx-translate/core';
 import { SecondaryButton } from '@app/shared/components/buttons/secondary-button/secondary-button.component';
+import { ViewInvoiceComponent } from '@app/shared/components/view-invoice/view-invoice.component';
 
 @Component({
     selector: 'view-invoice-details-for-manager',

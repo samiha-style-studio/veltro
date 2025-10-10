@@ -2,6 +2,9 @@ import { Component, DestroyRef, Input, OnInit } from '@angular/core';
 import { CommonModule, Location } from '@angular/common';
 import { SecondaryButton } from '@app/shared/components/buttons/secondary-button/secondary-button.component';
 import { LoaderComponent } from '@app/shared/components/loader/loader.component';
+import { NgZorroCustomModule } from '@app/shared/ng-zorro-custom.module';
+import { SafeTextPipe } from '@app/shared/pipe/safe-text.pipe';
+import { TranslateModule } from '@ngx-translate/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { ActivatedRoute, Router } from '@angular/router';
 import { APIEndpoint } from '@app/core/constants/api-endpoint';
@@ -9,12 +12,9 @@ import { DROPDOWN_OPTIONS } from '@app/core/constants/dropdown-options';
 import { HttpService } from '@app/core/services/http.service';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { map, finalize } from 'rxjs';
-import { SafeTextPipe } from '@app/shared/pipe/safe-text.pipe';
-import { NgZorroCustomModule } from '@app/shared/ng-zorro-custom.module';
-import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
-    selector: 'view-product-return-details',
+    selector: 'view-product-return-details-for-manager',
     imports: [
         CommonModule,
         LoaderComponent,
@@ -23,10 +23,10 @@ import { TranslateModule } from '@ngx-translate/core';
         NgZorroCustomModule,
         TranslateModule,
     ],
-    templateUrl: './view-product-return-details.component.html',
-    styleUrls: ['./view-product-return-details.component.scss']
+    templateUrl: './view-product-return-details-for-manager.component.html',
+    styleUrls: ['./view-product-return-details-for-manager.component.scss']
 })
-export class ViewProductReturnDetailsComponent implements OnInit {
+export class ViewProductReturnDetailsForManagerComponent implements OnInit {
   @Input() oid: any;
   editMode: boolean = false;
   loading: boolean = false;
@@ -69,9 +69,18 @@ export class ViewProductReturnDetailsComponent implements OnInit {
 
   redirectToSale(): void {
     this._router.navigate(
-      ['/sales/invoice/view-invoice', this.returnDetails?.sales_oid],
+      ['/manager/sales/invoice/view-invoice', this.returnDetails?.sales_oid],
       { state: { edit: false } }
     );
+  }
+
+  redirectToSupplier(item: any): void {
+    if (item?.supplier_oid) {
+      this._router.navigate(
+        ['/manager/configuration/supplier/view-supplier', item.supplier_oid],
+        { state: { edit: false } }
+      );
+    }
   }
 
   getReturnReasonLabel(reason: string): string {
@@ -84,7 +93,9 @@ export class ViewProductReturnDetailsComponent implements OnInit {
   loadProductDetails(): any {
     this.loading = true;
     this._httpService
-      .get(APIEndpoint.GET_PRODUCT_RETURN_DETAILS, { oid: this.oid })
+      .get(APIEndpoint.GET_PRODUCT_RETURN_DETAILS_FOR_MANAGER, {
+        oid: this.oid,
+      })
       .pipe(
         takeUntilDestroyed(this._destroyRef),
         finalize(() => (this.loading = false))

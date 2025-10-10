@@ -1,35 +1,28 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { TranslateModule } from '@ngx-translate/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormArray, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { NgZorroCustomModule } from '@app/shared/ng-zorro-custom.module';
-import { SecondaryButton } from '@app/shared/components/buttons/secondary-button/secondary-button.component';
-import { DangerButton } from '@app/shared/components/buttons/danger-button/danger-button.component';
-import {
-  FormArray,
-  FormBuilder,
-  FormGroup,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
-import { markFormGroupTouched } from '@app/core/constants/helper';
-import { PrimaryButton } from '@app/shared/components/buttons/primary-button/primary-button.component';
-import { ConfirmationModalComponent } from '@app/shared/components/confirmation-modal/confirmation-modal.component';
-import { NzModalService } from 'ng-zorro-antd/modal';
+import { TranslateModule } from '@ngx-translate/core';
+import { DangerButton } from '../buttons/danger-button/danger-button.component';
+import { PrimaryButton } from '../buttons/primary-button/primary-button.component';
+import { SecondaryButton } from '../buttons/secondary-button/secondary-button.component';
 import { DROPDOWN_OPTIONS } from '@app/core/constants/dropdown-options';
+import { markFormGroupTouched } from '@app/core/constants/helper';
+import { NzModalService } from 'ng-zorro-antd/modal';
+import { ConfirmationModalComponent } from '../confirmation-modal/confirmation-modal.component';
 
 @Component({
-    selector: 'view-invoice',
-    imports: [
+  selector: 'view-invoice',
+  imports: [
         CommonModule,
         TranslateModule,
         NgZorroCustomModule,
         SecondaryButton,
         DangerButton,
         ReactiveFormsModule,
-        PrimaryButton,
-    ],
-    templateUrl: './view-invoice.component.html',
-    styleUrls: ['./view-invoice.component.scss']
+        PrimaryButton],
+  templateUrl: './view-invoice.component.html',
+  styleUrl: './view-invoice.component.scss'
 })
 export class ViewInvoiceComponent implements OnInit {
   @Input() invoiceDetails: any;

@@ -13,7 +13,6 @@ import { NzAutocompleteModule } from 'ng-zorro-antd/auto-complete';
 import { HttpService } from '@app/core/services/http.service';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { LoaderComponent } from '@app/shared/components/loader/loader.component';
-import { SelectProductComponent } from '../../components/select-product/select-product.component';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { APIEndpoint } from '@app/core/constants/api-endpoint';
 import { finalize } from 'rxjs';
@@ -23,6 +22,7 @@ import { NzModalService } from 'ng-zorro-antd/modal';
 import { ActivatedRoute, Router } from '@angular/router';
 import { markFormGroupTouched } from '@app/core/constants/helper';
 import { PrintService } from '@app/core/services/print.service';
+import { SelectProductComponent } from '@app/shared/components/select-product/select-product.component';
 
 @Component({
     selector: 'app-quick-sale',

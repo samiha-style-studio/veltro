@@ -270,54 +270,6 @@ const routes: Routes = [
             ],
           },
           {
-            path: 'invoice',
-            children: [
-              {
-                path: '',
-                redirectTo: 'invoice-list',
-                pathMatch: 'full',
-              },
-              {
-                path: 'invoice-list',
-                loadComponent: () =>
-                  import(
-                    './pages/inventory/invoice/invoice-list/invoice-list.component'
-                  ).then((m) => m.InvoiceListComponent),
-              },
-              {
-                path: 'view-invoice/:oid',
-                loadComponent: () =>
-                  import(
-                    './pages/inventory/invoice/view-invoice-details-for-manager/view-invoice-details-for-manager.component'
-                  ).then((m) => m.ViewInvoiceDetailsForManagerComponent),
-              },
-            ],
-          },
-          {
-            path: 'product-return',
-            children: [
-              {
-                path: '',
-                redirectTo: 'list',
-                pathMatch: 'full',
-              },
-              {
-                path: 'list',
-                loadComponent: () =>
-                  import(
-                    './pages/inventory/product-return/display-product-return-list-for-manager/display-product-return-list-for-manager.component'
-                  ).then((m) => m.DisplayProductReturnListForManagerComponent),
-              },
-              {
-                path: 'view-product-return/:oid',
-                loadComponent: () =>
-                  import(
-                    './pages/inventory/product-return/view-product-return-details-for-manager/view-product-return-details-for-manager.component'
-                  ).then((m) => m.ViewProductReturnDetailsForManagerComponent),
-              },
-            ],
-          },
-          {
             path: 'product-dispose',
             children: [
               {
@@ -345,35 +297,66 @@ const routes: Routes = [
                   import(
                     './pages/inventory/product-dispose/view-product-dispose-details/view-product-dispose-details.component'
                   ).then((m) => m.ViewProductDisposeDetailsComponent),
-              }
-            ]
-          }
+              },
+            ],
+          },
         ],
       },
       {
-        path: 'employee',
+        path: 'sales',
         children: [
           {
-            path: 'attendance',
+            path: 'quick-sale',
+            loadComponent: () =>
+              import('./pages/sales/quick-sale/quick-sale.component').then(
+                (m) => m.QuickSaleComponent
+              ),
+          },
+          {
+            path: 'invoice',
             children: [
               {
                 path: '',
-                redirectTo: 'attendance-list',
+                redirectTo: 'invoice-list',
                 pathMatch: 'full',
               },
               {
-                path: 'attendance-list',
+                path: 'invoice-list',
                 loadComponent: () =>
                   import(
-                    './pages/employee/attendance/display-employee-attendance-list/display-employee-attendance-list.component'
-                  ).then((m) => m.DisplayEmployeeAttendanceListComponent),
+                    './pages/sales/invoice/invoice-list/invoice-list.component'
+                  ).then((m) => m.InvoiceListComponent),
               },
               {
-                path: 'view-attendance-details/:oid',
+                path: 'view-invoice/:oid',
                 loadComponent: () =>
                   import(
-                    './pages/employee/attendance/view-employee-attendance-details/view-employee-attendance-details.component'
-                  ).then((m) => m.ViewEmployeeAttendanceDetailsComponent),
+                    './pages/sales/invoice/view-invoice-details-for-manager/view-invoice-details-for-manager.component'
+                  ).then((m) => m.ViewInvoiceDetailsForManagerComponent),
+              },
+            ],
+          },
+          {
+            path: 'product-return',
+            children: [
+              {
+                path: '',
+                redirectTo: 'list',
+                pathMatch: 'full',
+              },
+              {
+                path: 'list',
+                loadComponent: () =>
+                  import(
+                    './pages/sales/product-return/display-product-return-list-for-manager/display-product-return-list-for-manager.component'
+                  ).then((m) => m.DisplayProductReturnListForManagerComponent),
+              },
+              {
+                path: 'view-product-return/:oid',
+                loadComponent: () =>
+                  import(
+                    './pages/sales/product-return/view-product-return-details-for-manager/view-product-return-details-for-manager.component'
+                  ).then((m) => m.ViewProductReturnDetailsForManagerComponent),
               },
             ],
           },

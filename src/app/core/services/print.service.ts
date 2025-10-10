@@ -88,7 +88,7 @@ export class PrintService {
         <div class="center">Date: ${
           data.created_on
             ? new Date(data.created_on).toLocaleString()
-            : new Date(data.created_on).toLocaleString()
+            : new Date().toLocaleString()
         }</div>
         <div class="line"></div>
 
