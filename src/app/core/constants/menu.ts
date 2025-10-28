@@ -129,7 +129,17 @@ export class Menu {
     //       route: '/manager/employee/attendance',
     //     },
     //   ],
-    // },
+    // },,
+    {
+      group: 'Analytics',
+      items: [
+        {
+          icon: 'assets/icons/report.svg',
+          label: 'Reports',
+          route: '/manager/reports',
+        },
+      ],
+    },
   ];
 
   static salesPages: MenuItem[] = [
